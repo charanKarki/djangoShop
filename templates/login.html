@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block 'style'%}
+<style>
+    .container{
+    max-width:500px;
+}
+
+</style>
+
+{% endblock 'style'%}
+{% block content %}
+    <div class="container w-50">
+    <h1 class = 'display-4 mt-5'>user log in</h1>
+        <form action="/login/" method="post" class="text-center">
+        {%  csrf_token %}
+        <div class="form-group text-left">
+          <label for="user">Username</label>
+          <input type="text" class="form-control" name="username" id="user"  placeholder="Username">
+          <small id="helpId" class="form-text text-muted">Enter user name</small>
+          <label for="psd">password</label>
+          <input type="password" class="form-control" name="password" id="psd"  placeholder="Password">
+          <small id="helpId" class="form-text text-muted">Enter your password</small>
+        </div>
+        <input type='submit' class="btn btn-info m-2" value='Submit'>
+        </form>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block style %}
+<style>
+    .form-group{
+    display:grid;
+    text-align: end;
+    max-width: 600px;
+    margin:0,auto,0,100px;
+
+    }
+    input{
+            border: none;
+    border-bottom: 2px solid;
+    background: #0000001f;
+    height: 38px;
+    border-radius: 2px;
+    }
+    label{
+            font-family: arial;
+    margin-right: 10px;
+    margin-top:20px;
+    }
+    .submit{
+        justify-self:end;
+        margin:20px;
+    }
+</style>
+{% endblock style %}
+{% block content %}
+
+    <div class="container mt-5 text-center">
+    <h1 class = 'display-4'>Create account</h1>
+        <form action="/signup/" method="post">
+        {%  csrf_token %}
+        <div class="form-group">
+        <div>
+        <label for="id_username">Username</label>
+          {{form.username}}
+          </div>
+          
+        <div>
+        <label for="id_password1">password</label>
+          {{form.password1}}
+        </div>
+          
+          
+        <div>
+        <label for="id_password2">conform password</label>
+          {{form.password2}}
+        </div>
+          
+          
+        <input type = 'submit' name = 'submit' class='btn btn-info w-25 mr-0 submit'value='Submit' >  
+        </div>
+
+        </form>
+    </div>
+
+{% endblock content %}
